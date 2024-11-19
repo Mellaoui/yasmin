@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class PeriodForm extends StatefulWidget {
   final Function(DateTime, DateTime, String, String, int) onSubmit;
 
-  PeriodForm({required this.onSubmit});
+  const PeriodForm({super.key, required this.onSubmit});
 
   @override
   _PeriodFormState createState() => _PeriodFormState();
@@ -109,7 +109,7 @@ class _PeriodFormState extends State<PeriodForm> {
               ),
               TextFormField(
                 controller: _symptomsController,
-                decoration: InputDecoration(labelText: 'Symptoms'),
+                decoration: const InputDecoration(labelText: 'Symptoms'),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter symptoms';
@@ -119,7 +119,7 @@ class _PeriodFormState extends State<PeriodForm> {
               ),
               DropdownButtonFormField<String>(
                 value: _selectedMood,
-                decoration: InputDecoration(labelText: 'Mood'),
+                decoration: const InputDecoration(labelText: 'Mood'),
                 items: _moodOptions.map((String mood) {
                   return DropdownMenuItem<String>(
                     value: mood,
@@ -140,7 +140,7 @@ class _PeriodFormState extends State<PeriodForm> {
               ),
               DropdownButtonFormField<int>(
                 value: _painLevel,
-                decoration: InputDecoration(labelText: 'Pain Level'),
+                decoration: const InputDecoration(labelText: 'Pain Level'),
                 items: List.generate(10, (index) => index + 1)
                     .map((level) => DropdownMenuItem<int>(
                           value: level,
@@ -153,10 +153,10 @@ class _PeriodFormState extends State<PeriodForm> {
                   });
                 },
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: _submitForm,
-                child: Text('Log Period'),
+                child: const Text('Log Period'),
               ),
             ],
           ),

@@ -15,7 +15,7 @@ class WavyPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
-      ..color = Color(0xFFFF4081).withOpacity(0.3)
+      ..color = const Color(0xFFFF4081).withOpacity(0.3)
       ..style = PaintingStyle.fill;
 
     final path = Path();

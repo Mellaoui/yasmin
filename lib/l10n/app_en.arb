@@ -1,0 +1,423 @@
+{
+  "metaDescription": "The Yassmine app supports women in tracking their health, menstrual cycles, and pregnancy, offering personalized reminders and tips.",
+  "@metaDescription": {
+      "description": "A short description about the Yassmine app for supporting women's health, menstrual cycle tracking, and pregnancy."
+  },
+  "language": "English",
+  "@language": {
+      "description": "The current language of the app."
+  },
+  "title": "Yassmine",
+  "@title": {
+      "description": "The title of the app displayed on the home screen."
+  },
+  "getPregnant": "Get Pregnant",
+  "@getPregnant": {
+      "description": "Button text for starting the process to track pregnancy."
+  },
+  "trackPregnancy": "Track Pregnancy",
+  "@trackPregnancy": {
+      "description": "Button text for starting the process to track ongoing pregnancy."
+  },
+  "start": "Start",
+  "@start": {
+      "description": "The label for the button that initiates any process, such as tracking pregnancy or a cycle."
+  },
+  "pregnantModalMessage": "You have started tracking your journey to get pregnant!",
+  "@pregnantModalMessage": {
+      "description": "A message shown in a modal when the user starts tracking for conception."
+  },
+  "pregnancyModalMessage": "You have started tracking your pregnancy!",
+  "@pregnancyModalMessage": {
+      "description": "A message shown in a modal when the user starts tracking their pregnancy."
+  },
+  "trackCycle": "Track Cycle",
+  "@trackCycle": {
+      "description": "Option to track the menstrual cycle."
+  },
+  "cycleSettings": "Cycle Settings",
+  "@cycleSettings": {
+      "description": "Settings option for customizing menstrual cycle details."
+  },
+  "reminders": "Reminders",
+  "@reminders": {
+      "description": "Settings option for reminders, such as notifications for cycles or appointments."
+  },
+  "settings": "Settings",
+  "@settings": {
+      "description": "Navigation option to enter the settings screen."
+  },
+  "symptomTracker": "Symptom Tracker",
+  "@symptomTracker": {
+      "description": "A feature in the app to log and track health symptoms."
+  },
+  "today": "Today",
+  "@today": {
+      "description": "Tab label for showing today's activities or details."
+  },
+  "calendar": "Calendar",
+  "@calendar": {
+      "description": "Tab label for viewing the calendar, including periods or pregnancy-related events."
+  },
+  "health": "Health",
+  "@health": {
+      "description": "Tab label for health-related information."
+  },
+  "you": "You",
+  "@you": {
+      "description": "Tab label for personal settings or user-specific information."
+  },
+  "secretBox": "Secret Box",
+  "@secretBox": {
+      "description": "A feature in the app related to secret content or rewards."
+  },
+  "prizeContest": "Prize Contest",
+  "@prizeContest": {
+      "description": "A feature related to contests or challenges."
+  },
+  "schoolDays": "School Days",
+  "@schoolDays": {
+      "description": "A feature or section related to learning resources."
+  },
+  "bmi": "BMI",
+  "@bmi": {
+      "description": "A feature related to tracking BMI (Body Mass Index)."
+  },
+  "notification": "Notifications",
+  "@notification": {
+      "description": "Button or option related to managing notifications."
+  },
+  "logPeriod": "Log Period",
+  "@logPeriod": {
+      "description": "Button for logging the start and end dates of the menstrual period."
+  },
+  "cycleStatus": "Cycle Status",
+  "@cycleStatus": {
+      "description": "Shows the current status of the menstrual cycle (e.g., period, ovulation)."
+  },
+  "highChanceOfConception": "High chance of conception",
+  "@highChanceOfConception": {
+      "description": "A label showing when the user is most fertile and has a higher chance of conception."
+  },
+  "period": "Period",
+  "@period": {
+      "description": "Label for the menstrual period phase."
+  },
+  "ovulation": "Ovulation",
+  "@ovulation": {
+      "description": "Label for the ovulation phase."
+  },
+  "prePeriod": "Pre-period",
+  "@prePeriod": {
+      "description": "Label for the days leading up to the menstrual period."
+  },
+  "pregnancyProgress": "Pregnancy Progress",
+  "@pregnancyProgress": {
+      "description": "Section title displaying the progress of the pregnancy."
+  },
+  "trimesterTips": "Trimester Tips",
+  "@trimesterTips": {
+      "description": "Section providing tips and advice for the current trimester of pregnancy."
+  },
+  "doctorVisits": "Doctor Visits",
+  "@doctorVisits": {
+      "description": "Section reminding the user to attend prenatal doctor visits."
+  },
+  "healthTracking": "Health Tracking",
+  "@healthTracking": {
+      "description": "Section related to tracking overall health or pregnancy-related health factors."
+  },
+  "fertileWindow": "Fertile Window",
+  "@fertileWindow": {
+      "description": "Label for the fertile window during the ovulation cycle."
+  },
+  "healthyDiet": "Healthy Diet",
+  "@healthyDiet": {
+      "description": "Section encouraging a healthy diet during pregnancy or for conception."
+  },
+  "reduceStress": "Reduce Stress",
+  "@reduceStress": {
+      "description": "Tip to reduce stress during pregnancy or the conception journey."
+  },
+  "ovulationWindowMessage": "Based on your cycle, you are most fertile from {startDate} to {endDate}.",
+  "@ovulationWindowMessage": {
+      "description": "Message showing the fertile window based on the user's cycle.",
+      "placeholders": {
+          "startDate": {
+              "example": "October 18th"
+          },
+          "endDate": {
+              "example": "October 23rd"
+          }
+      }
+  },
+  "healthyDietTip": "Ensure a healthy diet rich in folic acid, iron, and calcium to improve fertility.",
+  "@healthyDietTip": {
+      "description": "Tip encouraging the user to follow a healthy diet for fertility."
+  },
+  "reduceStressTip": "Practice relaxation techniques like yoga or meditation to reduce stress.",
+  "@reduceStressTip": {
+      "description": "Tip encouraging stress reduction techniques."
+  },
+  "secondTrimesterTips": "Second Trimester Tips",
+  "@secondTrimesterTips": {
+      "description": "Title for tips specifically for the second trimester of pregnancy."
+  },
+  "secondTrimesterTipsMessage": "Focus on healthy eating, staying active, and preparing for the baby's arrival.",
+  "@secondTrimesterTipsMessage": {
+      "description": "Advice for women in their second trimester."
+  },
+  "doctorVisitsMessage": "Ensure you are attending all scheduled prenatal visits and tracking baby growth.",
+  "@doctorVisitsMessage": {
+      "description": "Reminder for attending regular doctor visits during pregnancy."
+  },
+  "chooseLanguage": "Choose Language",
+  "@chooseLanguage": {
+      "description": "Prompt for choosing the language in the app."
+  },
+  "switchLanguageMessage": "Switch the app language",
+  "@switchLanguageMessage": {
+      "description": "Message to indicate that the user can switch the language of the app."
+  },
+  "normalDay": "Normal day",
+  "@normalDay": {
+      "description": "Default label for a day without any specific events."
+  },
+  "logPeriodTitle": "Log Period",
+  "@logPeriodTitle": {
+      "description": "The title for the Log Period screen."
+  },
+  "startPeriodToday": "Start period today:",
+  "@startPeriodToday": {
+      "description": "Label for switch to indicate whether the period starts today."
+  },
+  "periodLength": "Period Length (days):",
+  "@periodLength": {
+      "description": "Label for selecting the length of the period in days."
+  },
+  "selectStartDateError": "Please select a start date for the period.",
+  "@selectStartDateError": {
+      "description": "Error message shown when no start date is selected."
+  },
+  "logPeriodButton": "LOG PERIOD",
+  "@logPeriodButton": {
+      "description": "Button text to log the period information."
+  },
+  "trackSymptoms": "Track Symptoms",
+  "@trackSymptoms": {
+      "description": "Title of the screen where users can track their symptoms."
+  },
+  "mood": "Mood",
+  "@mood": {
+      "description": "Category title for mood-related symptoms."
+  },
+  "happy": "Happy",
+  "@happy": {
+      "description": "Symptom option for when the user is feeling happy."
+  },
+  "sad": "Sad",
+  "@sad": {
+      "description": "Symptom option for when the user is feeling sad."
+  },
+  "cramp": "Cramp",
+  "@cramp": {
+      "description": "Symptom option for when the user has cramps."
+  },
+  "tired": "Tired",
+  "@tired": {
+      "description": "Symptom option for when the user is feeling tired."
+  },
+  "bleeding": "Bleeding",
+  "@bleeding": {
+      "description": "Category title for bleeding-related symptoms."
+  },
+  "lightBleeding": "Light Bleeding",
+  "@lightBleeding": {
+      "description": "Symptom option for light bleeding during the period."
+  },
+  "heavyBleeding": "Heavy Bleeding",
+  "@heavyBleeding": {
+      "description": "Symptom option for heavy bleeding during the period."
+  },
+  "symptoms": "Symptoms",
+  "@symptoms": {
+      "description": "Category title for various symptoms."
+  },
+  "nausea": "Nausea",
+  "@nausea": {
+      "description": "Symptom option for when the user is experiencing nausea."
+  },
+  "headache": "Headache",
+  "@headache": {
+      "description": "Symptom option for when the user is experiencing a headache."
+  },
+  "bloating": "Bloating",
+  "@bloating": {
+      "description": "Symptom option for when the user is experiencing bloating."
+  },
+  "cravings": "Cravings",
+  "@cravings": {
+      "description": "Symptom option for when the user is experiencing cravings."
+  },
+  "breastsHurting": "Breasts Hurting",
+  "@breastsHurting": {
+      "description": "Symptom option for when the user has breast pain."
+  },
+  "lowerBackPain": "Lower Back Pain",
+  "@lowerBackPain": {
+      "description": "Symptom option for when the user has lower back pain."
+  },
+  "sex": "Sex",
+  "@sex": {
+      "description": "Category title for sex-related tracking."
+  },
+  "protectedSex": "Protected Sex",
+  "@protectedSex": {
+      "description": "Symptom option for when the user had protected sex."
+  },
+  "unprotectedSex": "Unprotected Sex",
+  "@unprotectedSex": {
+      "description": "Symptom option for when the user had unprotected sex."
+  },
+  "pregnancyTest": "Pregnancy Test",
+  "@pregnancyTest": {
+      "description": "Category title for pregnancy test results."
+  },
+  "positiveTest": "Positive Test",
+  "@positiveTest": {
+      "description": "Symptom option for when the user has a positive pregnancy test."
+  },
+  "negativeTest": "Negative Test",
+  "@negativeTest": {
+      "description": "Symptom option for when the user has a negative pregnancy test."
+  },
+  "save": "Save",
+  "@save": {
+      "description": "Button label to save the selected symptoms."
+  },
+  "completed": "Completed",
+  "@completed": {
+    "description": "Indicates the profile media completion status as completed."
+  },
+  "notCompleted": "Not completed",
+  "@notCompleted": {
+    "description": "Indicates the profile media completion status as not completed."
+  },
+  "noPeriodData": "No period data available",
+  "@noPeriodData": {
+    "description": "Message displayed when there is no period data available for the user."
+  },
+  "gameTitle": "Mood Match",
+  "score": "Score",
+  "timeLeft": "Time Left",
+  "nextLevel": "Next Level",
+  "congratulations": "Congratulations!",
+  "completedLevel": "You completed Level {level}!",
+  "@completedLevel": {
+      "description": "Message displayed when a level is completed",
+      "placeholders": {
+          "level": {
+              "example": "1"
+          }
+      }
+  },
+  "gameOver": "Time's up!",
+  "highScore": "High Score",
+  "tryAgain": "Try Again",
+  "quit": "Quit",
+  "back": "Back",
+  "question_anxiety": "Anxiety",
+  "question_fatigue": "Fatigue",
+  "question_irritability": "Irritability",
+  "question_sadness": "Sadness",
+  "question_cramps": "Cramps",
+  "question_headache": "Headache",
+  "question_loneliness": "Loneliness",
+  "question_stress": "Stress",
+  "question_moodSwings": "Mood Swings",
+  "question_tiredness": "Tiredness",
+  "question_confusion": "Confusion",
+  "question_fear": "Fear",
+  "question_insomnia": "Insomnia",
+  "question_lethargy": "Lethargy",
+  "question_overwhelm": "Overwhelm",
+  "question_distraction": "Distraction",
+  "question_boredom": "Boredom",
+  "question_anger": "Anger",
+  "question_frustration": "Frustration",
+  "question_impatience": "Impatience",
+  "question_restlessness": "Restlessness",
+  "remedy_relaxation": "Relaxation",
+  "remedy_snacks": "Snacks",
+  "remedy_exercise": "Exercise",
+  "remedy_socializing": "Socializing",
+  "remedy_heatTherapy": "Heat Therapy",
+  "remedy_hydration": "Hydration",
+  "remedy_connectWithFriends": "Connecting with Friends",
+  "remedy_meditation": "Meditation",
+  "remedy_healthySnacks": "Healthy Snacks",
+  "remedy_mindfulBreathing": "Mindful Breathing",
+  "remedy_comfortActivity": "Comfort Activity",
+  "remedy_sleepHygiene": "Sleep Hygiene",
+  "remedy_movement": "Movement",
+  "remedy_planning": "Planning",
+  "remedy_focusExercise": "Focus Exercise",
+  "remedy_newActivity": "New Activity",
+  "remedy_breathingExercises": "Breathing Exercises",
+  "remedy_journaling": "Journaling",
+  "remedy_mindfulness": "Mindfulness",
+  "remedy_physicalActivity": "Physical Activity",
+  "profileTitle": "Profile",
+  "completionText": "{percentage}% Complete",
+  "ageLabel": "Age",
+  "interestsLabel": "Interests",
+  "editButton": "Edit",
+  "mediaCompleteLabel": "Media Completed",
+  "notSet": "Not set",
+  "saveButton": "Save",
+  "nameLabel": "Name",
+  "interestsSubtitle": "{interests}",
+  
+  "finalizePeriodTitle": "Finalize Period",
+ 
+  "finalizePeriodButton": "Finalize Period",
+  "periodFinalized": "Your period has been successfully finalized.",
+  "selectedStartDate": "Selected Start Date",
+"@selectedStartDate": {
+  "description": "Label for displaying the selected start date"
+},
+"selectStartDatePrompt": "Please select the start date",
+"@selectStartDatePrompt": {
+  "description": "Prompt message for the user to select the start date"
+},
+ "ovulationPrediction": "Predicted Ovulation Date",
+ "bmi_calculator_title": "BMI Calculator",
+ "gender_label": "Gender:",
+ "female": "Female",
+ "male": "Male",
+ "height_label": "Height",
+ "weight_label": "Weight",
+ "cm_unit": "cm",
+ "kg_unit": "kg",
+ "calculate_button": "Calculate!",
+ "your_bmi_result": "Your BMI Result",
+ "bmi_category": "Category",
+ "underweight": "Underweight",
+ "healthy": "Healthy",
+ "overweight": "Overweight",
+ "obese": "Obese",
+ "highly_obese": "Highly Obese",
+ "extremely_obese": "Extremely Obese",
+ "bmi_categories_label": "BMI Categories:",
+ "results_button": "Results",
+ "@bmi_calculator_title": {
+   "description": "Title for the BMI Calculator screen"
+ },
+ "logout": "Logout",
+ "login":"login",
+ "title_tic_tac": "Tic-Tac-Toe",
+ "player_wins": "Player {player} Wins!",
+ "draw": "It's a Draw!",
+ "reset_button": "Reset Game",
+ "login_required":"Login Required"
+}

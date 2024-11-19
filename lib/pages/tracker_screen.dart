@@ -5,6 +5,8 @@ import '../widgets/period_list.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 
 class TrackerScreen extends StatefulWidget {
+  const TrackerScreen({super.key});
+
   @override
   _TrackerScreenState createState() => _TrackerScreenState();
 }
@@ -41,7 +43,7 @@ class _TrackerScreenState extends State<TrackerScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Tracker')),
+      appBar: AppBar(title: const Text('Tracker')),
       body: Column(
         children: [
           Expanded(
@@ -56,13 +58,13 @@ class _TrackerScreenState extends State<TrackerScreen> {
         foregroundColor: Colors.white,
         children: [
           SpeedDialChild(
-            child: Icon(Icons.calendar_today),
+            child: const Icon(Icons.calendar_today),
             label: 'Log Period',
             backgroundColor: Colors.red,
             onTap: () => _showAddPeriodForm(context),
           ),
           SpeedDialChild(
-            child: Icon(Icons.note_add),
+            child: const Icon(Icons.note_add),
             label: 'Add Note',
             backgroundColor: Colors.green,
             onTap: () {

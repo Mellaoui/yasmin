@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:imraatun/providers/mode_provider.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:imraatun/providers/day_status_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:imraatun/pages/get_pregnant_screen.dart';
+import 'package:imraatun/pages/home_screen.dart';
+import 'package:imraatun/pages/track_pregnancy_screen.dart';
+import 'package:imraatun/providers/mode_provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SettingsScreen extends StatefulWidget {
-  const SettingsScreen({super.key});
+  final Function(Locale) onLanguageChanged;
+
+  const SettingsScreen({super.key, required this.onLanguageChanged});
 
   @override
   _SettingsScreenState createState() => _SettingsScreenState();
@@ -14,19 +24,14 @@ class _SettingsScreenState extends State<SettingsScreen>
   late AnimationController _controller;
   bool _isAnimating = false;
   int _selectedGoalIndex = 0;
-
-  final List<String> _goals = [
-    'Track Cycle',
-    'Get Pregnant',
-    'Track Pregnancy',
-  ];
+  Locale _selectedLocale = const Locale('en');
 
   @override
   void initState() {
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 1500), // Duration for the loading
+      duration: const Duration(milliseconds: 1200),
     );
   }
 
@@ -50,38 +55,106 @@ class _SettingsScreenState extends State<SettingsScreen>
   }
 
   void _switchMode(int index) {
-    // Immediate UI update to reflect button change
     setState(() {
       _selectedGoalIndex = index;
       _isAnimating = true;
     });
 
-    // Start the animation for loading percentage
     _controller.forward(from: 0).then((_) {
-      setState(() {
-        final modeProvider = Provider.of<ModeProvider>(context, listen: false);
-        if (index == 0) {
+      final modeProvider = Provider.of<ModeProvider>(context, listen: false);
+      Widget targetScreen;
+
+      switch (index) {
+        case 0:
           modeProvider.updateMode(AppMode.trackCycle);
-        } else if (index == 1) {
+          targetScreen = HomeScreen(
+            onLanguageChanged: widget.onLanguageChanged,
+          );
+          break;
+        case 1:
           modeProvider.updateMode(AppMode.getPregnant);
-        } else if (index == 2) {
+          targetScreen = const GetPregnantScreen();
+          break;
+        case 2:
           modeProvider.updateMode(AppMode.trackPregnancy);
-        }
+          targetScreen = const TrackPregnancyScreen();
+          break;
+        default:
+          targetScreen = HomeScreen(
+            onLanguageChanged: widget.onLanguageChanged,
+          );
+      }
+
+      setState(() {
         _isAnimating = false;
-        Navigator.of(context).pop(); // Close the settings screen
       });
+
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => targetScreen),
+      );
     });
+  }
+
+  void _onLanguageSelected(Locale locale) {
+    setState(() {
+      _selectedLocale = locale;
+    });
+    widget.onLanguageChanged(locale);
+  }
+
+  Future<void> logout() async {
+    try {
+      await FirebaseAuth.instance.signOut();
+      Provider.of<DayStatusProvider>(context, listen: false).clearDayStatus();
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(
+            builder: (context) => HomeScreen(
+                  onLanguageChanged: widget.onLanguageChanged,
+                )),
+      );
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Logout failed: $e')),
+      );
+    }
+  }
+
+  Future<void> _signInWithGoogle() async {
+    try {
+      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+      if (googleUser == null) {
+        return; // User canceled the sign-in
+      }
+
+      final GoogleSignInAuthentication googleAuth =
+          await googleUser.authentication;
+      final OAuthCredential credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth.accessToken,
+        idToken: googleAuth.idToken,
+      );
+
+      await FirebaseAuth.instance.signInWithCredential(credential);
+      setState(() {}); // Refresh the UI to show the logout button
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Google Sign-In failed: $e')),
+      );
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    // Get the current mode from the provider
     final currentMode = Provider.of<ModeProvider>(context).currentMode;
     _selectedGoalIndex = _getSelectedGoalIndex(currentMode);
+    final User? user = FirebaseAuth.instance.currentUser;
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Settings', style: TextStyle(color: Colors.black)),
+        title: Text(
+          AppLocalizations.of(context)?.settings ?? 'Settings',
+          style: const TextStyle(color: Colors.black),
+        ),
         backgroundColor: Colors.transparent,
         elevation: 0,
         iconTheme: const IconThemeData(color: Colors.black),
@@ -90,15 +163,24 @@ class _SettingsScreenState extends State<SettingsScreen>
       body: Stack(
         children: [
           SingleChildScrollView(
-            padding: const EdgeInsets.all(16.0),
+            padding:
+                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 24.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                _buildHeader(),
-                const SizedBox(height: 24),
                 _buildGoalsSection(),
-                const SizedBox(height: 30),
-                _buildModeContent(), // Content for the selected mode
+                const SizedBox(height: 24),
+                _buildSettingsOption(
+                    Icons.calendar_today,
+                    AppLocalizations.of(context)?.cycleSettings ??
+                        'Cycle Settings'),
+                const SizedBox(height: 16),
+                _buildSettingsOption(Icons.alarm,
+                    AppLocalizations.of(context)?.reminders ?? 'Reminders'),
+                const SizedBox(height: 24),
+                _buildLanguageSelection(),
+                const SizedBox(height: 24),
+                user == null ? _buildLoginButton() : _buildLogoutButton(),
               ],
             ),
           ),
@@ -108,131 +190,106 @@ class _SettingsScreenState extends State<SettingsScreen>
     );
   }
 
-  Widget _buildHeader() {
-    return const Column(
+  Widget _buildLoginButton() {
+    return CustomButton(
+      icon: Icons.login,
+      label: AppLocalizations.of(context)?.login ?? 'Login with Google',
+      onPressed: _signInWithGoogle,
+      backgroundColor: const Color.fromARGB(255, 186, 68, 255),
+    );
+  }
+
+  Widget _buildLogoutButton() {
+    return CustomButton(
+      icon: Icons.logout,
+      label: AppLocalizations.of(context)?.logout ?? 'Logout',
+      onPressed: logout,
+      backgroundColor: const Color.fromARGB(255, 26, 25, 25),
+    );
+  }
+
+  Widget _buildGoalsSection() {
+    final List<String> goals = [
+      AppLocalizations.of(context)?.trackCycle ?? 'Track Cycle',
+      AppLocalizations.of(context)?.getPregnant ?? 'Get Pregnant',
+      AppLocalizations.of(context)?.trackPregnancy ?? 'Track Pregnancy',
+    ];
+
+    return GoalsSection(
+      goals: goals,
+      selectedIndex: _selectedGoalIndex,
+      onGoalSelected: _switchMode,
+    );
+  }
+
+  Widget _buildSettingsOption(IconData icon, String title) {
+    return CustomSettingsOption(
+      icon: icon,
+      title: title,
+      onTap: () {
+        // Handle navigation to respective settings screen
+      },
+    );
+  }
+
+  Widget _buildLanguageSelection() {
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Your Goal',
-          style: TextStyle(
-            fontSize: 26,
+          AppLocalizations.of(context)?.chooseLanguage ?? 'Choose Language',
+          style: const TextStyle(
+            fontSize: 18,
             fontWeight: FontWeight.bold,
-            color: Colors.black87,
+            color: Color.fromARGB(255, 218, 0, 238),
           ),
         ),
-        SizedBox(height: 8),
-        Text(
-          'Select the goal you want to focus on:',
-          style: TextStyle(
-            fontSize: 16,
-            color: Colors.black54,
-          ),
+        const SizedBox(height: 16),
+        Row(
+          children: [
+            _buildFlagButton('assets/svgs/united-states-svgrepo-com.svg',
+                'English', const Locale('en')),
+            const SizedBox(width: 20),
+            _buildFlagButton('assets/svgs/algeria-algeria-svgrepo-com.svg',
+                'العربية', const Locale('ar')),
+          ],
         ),
       ],
     );
   }
 
-  Widget _buildGoalsSection() {
-    return SizedBox(
-      height: 52, // Increase height for better touch targets
-      child: ListView.separated(
-        scrollDirection: Axis.horizontal,
-        itemCount: _goals.length,
-        separatorBuilder: (context, index) => const SizedBox(width: 8),
-        itemBuilder: (context, index) {
-          final bool isSelected = _selectedGoalIndex == index;
-          return GestureDetector(
-            onTap: () {
-              _switchMode(index); // Switch mode when a goal is selected
-            },
-            child: AnimatedContainer(
-              duration: const Duration(milliseconds: 300), // Shortened duration
-              curve: Curves.easeInOut,
-              padding: const EdgeInsets.symmetric(
-                  vertical: 12, horizontal: 24), // Increased padding
-              decoration: BoxDecoration(
-                color: isSelected ? const Color(0xFFFF4081) : Colors.white,
-                borderRadius: BorderRadius.circular(25),
-                border: Border.all(
-                  color: isSelected
-                      ? const Color(0xFFFF4081)
-                      : Colors.grey.shade300,
-                  width: 2,
-                ),
-                boxShadow: [
-                  if (isSelected)
-                    BoxShadow(
-                      color: const Color(0xFFFF4081).withOpacity(0.5),
-                      blurRadius: 12,
-                      offset: const Offset(0, 6),
-                    ),
-                ],
-              ),
-              child: Center(
-                child: Text(
-                  _goals[index],
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: isSelected ? Colors.white : Colors.black,
-                    fontSize: 18,
-                    fontWeight:
-                        isSelected ? FontWeight.bold : FontWeight.normal,
-                  ),
-                ),
-              ),
+  Widget _buildFlagButton(
+      String assetPath, String languageName, Locale locale) {
+    final bool isSelected = _selectedLocale == locale;
+
+    return GestureDetector(
+      onTap: () => _onLanguageSelected(locale),
+      child: Column(
+        children: [
+          Container(
+            padding: const EdgeInsets.all(4.0),
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              border: isSelected
+                  ? Border.all(
+                      color: const Color.fromARGB(255, 218, 0, 238),
+                      width: 3,
+                    )
+                  : null,
             ),
-          );
-        },
-      ),
-    );
-  }
-
-  Widget _buildModeContent() {
-    return AnimatedSwitcher(
-      duration: const Duration(milliseconds: 500),
-      child: _getModeContentWidget(),
-    );
-  }
-
-  Widget _getModeContentWidget() {
-    switch (_selectedGoalIndex) {
-      case 0:
-        return _buildTrackCycleContent();
-      case 1:
-        return _buildGetPregnantContent();
-      case 2:
-        return _buildTrackPregnancyContent();
-      default:
-        return const SizedBox.shrink();
-    }
-  }
-
-  Widget _buildTrackCycleContent() {
-    return const Padding(
-      padding: EdgeInsets.all(16.0),
-      child: Text(
-        'Track Cycle Mode Content',
-        style: TextStyle(fontSize: 18),
-      ),
-    );
-  }
-
-  Widget _buildGetPregnantContent() {
-    return const Padding(
-      padding: EdgeInsets.all(16.0),
-      child: Text(
-        'Get Pregnant Mode Content',
-        style: TextStyle(fontSize: 18),
-      ),
-    );
-  }
-
-  Widget _buildTrackPregnancyContent() {
-    return const Padding(
-      padding: EdgeInsets.all(16.0),
-      child: Text(
-        'Track Pregnancy Mode Content',
-        style: TextStyle(fontSize: 18),
+            child: SvgPicture.asset(assetPath, width: 50, height: 50),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            languageName,
+            style: TextStyle(
+              fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+              color: isSelected
+                  ? const Color.fromARGB(255, 218, 0, 238)
+                  : Colors.black87,
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -251,8 +308,8 @@ class _SettingsScreenState extends State<SettingsScreen>
                 value: value,
                 strokeWidth: 6.0,
                 backgroundColor: Colors.grey.shade300,
-                valueColor:
-                    const AlwaysStoppedAnimation<Color>(Color(0xFFFF4081)),
+                valueColor: const AlwaysStoppedAnimation<Color>(
+                    Color.fromARGB(255, 238, 0, 206)),
               ),
               const SizedBox(height: 16),
               Text(
@@ -266,6 +323,158 @@ class _SettingsScreenState extends State<SettingsScreen>
             ],
           );
         },
+      ),
+    );
+  }
+}
+
+class CustomButton extends StatelessWidget {
+  final IconData icon;
+  final String label;
+  final VoidCallback onPressed;
+  final Color backgroundColor;
+
+  const CustomButton({
+    Key? key,
+    required this.icon,
+    required this.label,
+    required this.onPressed,
+    required this.backgroundColor,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onPressed,
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 14.0, horizontal: 16.0),
+        decoration: BoxDecoration(
+          color: backgroundColor,
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Row(
+          children: [
+            Icon(icon, color: Colors.white),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Text(
+                label,
+                style: const TextStyle(
+                  fontSize: 16,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class CustomSettingsOption extends StatelessWidget {
+  final IconData icon;
+  final String title;
+  final VoidCallback onTap;
+
+  const CustomSettingsOption({
+    Key? key,
+    required this.icon,
+    required this.title,
+    required this.onTap,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 14.0, horizontal: 16.0),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(12),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.2),
+              spreadRadius: 2,
+              blurRadius: 8,
+              offset: const Offset(0, 4),
+            ),
+          ],
+        ),
+        child: Row(
+          children: [
+            Icon(icon, color: Colors.grey.shade700),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Text(
+                title,
+                style: const TextStyle(
+                  fontSize: 16,
+                  color: Colors.black87,
+                ),
+              ),
+            ),
+            const Icon(Icons.arrow_forward_ios, size: 16, color: Colors.grey),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class GoalsSection extends StatelessWidget {
+  final List<String> goals;
+  final int selectedIndex;
+  final Function(int) onGoalSelected;
+
+  const GoalsSection({
+    Key? key,
+    required this.goals,
+    required this.selectedIndex,
+    required this.onGoalSelected,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(12.0),
+      decoration: BoxDecoration(
+        color: Colors.grey.shade100,
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          children: List.generate(goals.length, (index) {
+            final bool isSelected = selectedIndex == index;
+            return GestureDetector(
+              onTap: () => onGoalSelected(index),
+              child: AnimatedContainer(
+                duration: const Duration(milliseconds: 300),
+                curve: Curves.easeInOut,
+                padding:
+                    const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
+                margin: const EdgeInsets.symmetric(horizontal: 4),
+                decoration: BoxDecoration(
+                  color: isSelected
+                      ? const Color.fromARGB(255, 218, 0, 238)
+                      : Colors.white,
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Text(
+                  goals[index],
+                  style: TextStyle(
+                    color: isSelected ? Colors.white : Colors.black87,
+                    fontWeight:
+                        isSelected ? FontWeight.bold : FontWeight.normal,
+                    fontSize: 14,
+                  ),
+                ),
+              ),
+            );
+          }),
+        ),
       ),
     );
   }

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "772703011244",
+    "project_id": "yasmin-test",
+    "storage_bucket": "yasmin-test.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:772703011244:android:8329e0af7f664263617a09",
+        "android_client_info": {
+          "package_name": "com.example.imraatun"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtTbMKuRje2faX_NgRQk7wbzOBkpwNPNs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

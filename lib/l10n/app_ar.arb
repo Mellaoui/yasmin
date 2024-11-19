@@ -1,0 +1,424 @@
+{
+  "metaDescription": "تطبيق ياسمين يهدف إلى دعم النساء في تتبع صحتهم، دوراتهم الشهرية، وفترات الحمل، ويقدم تذكيرات ونصائح مخصصة.",
+  "@metaDescription": {
+    "description": "وصف مختصر عن تطبيق ياسمين لدعم تتبع صحة المرأة، الدورات الشهرية، والحمل."
+  },
+  "language": "العربية",
+  "@language": {
+    "description": "اللغة الحالية للتطبيق."
+  },
+  "title": "ياسمين",
+  "@title": {
+    "description": "عنوان التطبيق المعروض على الشاشة الرئيسية."
+  },
+  "getPregnant": "الحمل",
+  "@getPregnant": {
+    "description": "نص الزر لبدء عملية تتبع الحمل."
+  },
+  "trackPregnancy": "تتبع الحمل",
+  "@trackPregnancy": {
+    "description": "نص الزر لبدء عملية تتبع الحمل الحالي."
+  },
+  "start": "ابدأ",
+  "@start": {
+    "description": "التسمية للزر الذي يبدأ أي عملية، مثل تتبع الحمل أو الدورة."
+  },
+  "pregnantModalMessage": "لقد بدأت تتبع رحلتك للحمل!",
+  "@pregnantModalMessage": {
+    "description": "رسالة تظهر في نافذة عند بدء المستخدم لتتبع رحلة الحمل."
+  },
+  "pregnancyModalMessage": "لقد بدأت تتبع حملك!",
+  "@pregnancyModalMessage": {
+    "description": "رسالة تظهر في نافذة عند بدء المستخدم لتتبع حمله."
+  },
+  "trackCycle": "تتبع الدورة",
+  "@trackCycle": {
+    "description": "خيار لتتبع الدورة الشهرية."
+  },
+  "cycleSettings": "إعدادات الدورة",
+  "@cycleSettings": {
+    "description": "إعدادات مخصصة لتفاصيل الدورة الشهرية."
+  },
+  "reminders": "التذكيرات",
+  "@reminders": {
+    "description": "خيار إعدادات التذكيرات مثل إشعارات الدورة أو المواعيد."
+  },
+  "settings": "الإعدادات",
+  "@settings": {
+    "description": "خيار التنقل إلى شاشة الإعدادات."
+  },
+  "symptomTracker": "متتبع الأعراض",
+  "@symptomTracker": {
+    "description": "ميزة في التطبيق لتسجيل وتتبع الأعراض الصحية."
+  },
+  "today": "اليوم",
+  "@today": {
+    "description": "تصنيف يعرض أنشطة أو تفاصيل اليوم."
+  },
+  "calendar": "التقويم",
+  "@calendar": {
+    "description": "تصنيف يعرض التقويم بما في ذلك الفترات أو أحداث الحمل."
+  },
+  "health": "الصحة",
+  "@health": {
+    "description": "تصنيف لمعلومات الصحة."
+  },
+  "you": "أنت",
+  "@you": {
+    "description": "تصنيف للإعدادات الشخصية أو معلومات المستخدم."
+  },
+  "secretBox": "الصندوق السري",
+  "@secretBox": {
+    "description": "ميزة في التطبيق تتعلق بالمحتوى السري أو المكافآت."
+  },
+  "prizeContest": "مسابقة الجوائز",
+  "@prizeContest": {
+    "description": "ميزة تتعلق بالمسابقات أو التحديات."
+  },
+  "schoolDays": "أيام المدرسة",
+  "@schoolDays": {
+    "description": "قسم أو ميزة تتعلق بالموارد التعليمية."
+  },
+  "bmi": "مؤشر كتلة الجسم",
+  "@bmi": {
+    "description": "ميزة تتعلق بتتبع مؤشر كتلة الجسم."
+  },
+  "notification": "الإشعارات",
+  "@notification": {
+    "description": "زر أو خيار لإدارة الإشعارات."
+  },
+  "logPeriod": "سجل الدورة",
+  "@logPeriod": {
+    "description": "زر لتسجيل تواريخ بداية ونهاية الدورة الشهرية."
+  },
+  "cycleStatus": "حالة الدورة",
+  "@cycleStatus": {
+    "description": "يعرض حالة الدورة الشهرية الحالية (مثل الحيض أو الإباضة)."
+  },
+  "highChanceOfConception": "فرصة عالية للحمل",
+  "@highChanceOfConception": {
+    "description": "علامة تشير إلى فترة الإخصاب عندما تكون فرصة الحمل أعلى."
+  },
+  "period": "الحيض",
+  "@period": {
+    "description": "تسمية لمرحلة الحيض."
+  },
+  "ovulation": "الإباضة",
+  "@ovulation": {
+    "description": "تسمية لمرحلة الإباضة."
+  },
+  "prePeriod": "ما قبل الحيض",
+  "@prePeriod": {
+    "description": "تسمية للأيام التي تسبق الحيض."
+  },
+  "pregnancyProgress": "تقدم الحمل",
+  "@pregnancyProgress": {
+    "description": "عنوان قسم يعرض تقدم الحمل."
+  },
+  "trimesterTips": "نصائح الثلث",
+  "@trimesterTips": {
+    "description": "قسم يقدم النصائح بناءً على الثلث الحالي من الحمل."
+  },
+  "doctorVisits": "زيارات الطبيب",
+  "@doctorVisits": {
+    "description": "قسم يذكّر المستخدم بحضور زيارات الطبيب السابقة للولادة."
+  },
+  "healthTracking": "تتبع الصحة",
+  "@healthTracking": {
+    "description": "قسم يتعلق بتتبع الصحة العامة أو العوامل المتعلقة بالحمل."
+  },
+  "fertileWindow": "نافذة الخصوبة",
+  "@fertileWindow": {
+    "description": "تسمية للفترة الخصبة خلال دورة الإباضة."
+  },
+  "healthyDiet": "النظام الغذائي الصحي",
+  "@healthyDiet": {
+    "description": "قسم يشجع النظام الغذائي الصحي أثناء الحمل أو للحمل."
+  },
+  "reduceStress": "تقليل التوتر",
+  "@reduceStress": {
+    "description": "نصيحة لتقليل التوتر أثناء الحمل أو رحلة الحمل."
+  },
+  "ovulationWindowMessage": "بناءً على دورتك، تكونين أكثر خصوبة من {startDate} إلى {endDate}.",
+  "@ovulationWindowMessage": {
+    "description": "رسالة تعرض نافذة الخصوبة بناءً على دورة المستخدم.",
+    "placeholders": {
+      "startDate": {
+        "example": "18 أكتوبر"
+      },
+      "endDate": {
+        "example": "23 أكتوبر"
+      }
+    }
+  },
+  "healthyDietTip": "تأكدي من اتباع نظام غذائي غني بحمض الفوليك والحديد والكالسيوم لتحسين الخصوبة.",
+  "@healthyDietTip": {
+    "description": "نصيحة تشجع المستخدم على اتباع نظام غذائي صحي للخصوبة."
+  },
+  "reduceStressTip": "مارسي تقنيات الاسترخاء مثل اليوغا أو التأمل لتقليل التوتر.",
+  "@reduceStressTip": {
+    "description": "نصيحة تشجع على تقنيات تقليل التوتر."
+  },
+  "secondTrimesterTips": "نصائح الثلث الثاني",
+  "@secondTrimesterTips": {
+    "description": "عنوان لنصائح محددة للثلث الثاني من الحمل."
+  },
+  "secondTrimesterTipsMessage": "ركزي على تناول الطعام الصحي، والحفاظ على النشاط، والاستعداد لوصول الطفل.",
+  "@secondTrimesterTipsMessage": {
+    "description": "نصيحة للنساء في الثلث الثاني من الحمل."
+  },
+  "doctorVisitsMessage": "تأكدي من حضور جميع زيارات الطبيب المجدولة وتتبع نمو الطفل.",
+  "@doctorVisitsMessage": {
+    "description": "تذكير بحضور زيارات الطبيب بانتظام خلال الحمل."
+  },
+  "chooseLanguage": "اختر اللغة",
+  "@chooseLanguage": {
+    "description": "رسالة لاختيار لغة التطبيق."
+  },
+  "switchLanguageMessage": "تبديل لغة التطبيق",
+  "@switchLanguageMessage": {
+    "description": "رسالة تشير إلى أن المستخدم يمكنه تبديل لغة التطبيق."
+  },
+  "normalDay": "يوم عادي",
+  "@normalDay": {
+    "description": "التسمية الافتراضية ليوم بدون أي أحداث معينة."
+  },
+  "logPeriodTitle": "سجل الدورة",
+  "@logPeriodTitle": {
+    "description": "عنوان شاشة تسجيل الدورة."
+  },
+  "startPeriodToday": "ابدأ الدورة اليوم:",
+  "@startPeriodToday": {
+    "description": "تسمية لمفتاح التبديل لتحديد ما إذا كانت الدورة تبدأ اليوم."
+  },
+  "periodLength": "مدة الدورة (أيام):",
+  "@periodLength": {
+    "description": "تسمية لاختيار مدة الدورة بالأيام."
+  },
+  "selectStartDateError": "يرجى تحديد تاريخ بدء الدورة.",
+  "@selectStartDateError": {
+    "description": "رسالة خطأ تظهر عند عدم تحديد تاريخ البدء."
+  },
+  "logPeriodButton": "سجل الدورة",
+  "@logPeriodButton": {
+    "description": "نص الزر لتسجيل معلومات الدورة."
+  },
+  "trackSymptoms": "تتبع الأعراض",
+  "@trackSymptoms": {
+    "description": "عنوان الشاشة التي يمكن للمستخدم فيها تتبع الأعراض."
+  },
+  "mood": "المزاج",
+  "@mood": {
+    "description": "عنوان الفئة للأعراض المتعلقة بالمزاج."
+  },
+  "happy": "سعيد",
+  "@happy": {
+    "description": "خيار العرض عندما يشعر المستخدم بالسعادة."
+  },
+  "sad": "حزين",
+  "@sad": {
+    "description": "خيار العرض عندما يشعر المستخدم بالحزن."
+  },
+  "cramp": "تقلصات",
+  "@cramp": {
+    "description": "خيار العرض عندما يعاني المستخدم من تقلصات."
+  },
+  "tired": "متعب",
+  "@tired": {
+    "description": "خيار العرض عندما يشعر المستخدم بالتعب."
+  },
+  "bleeding": "النزيف",
+  "@bleeding": {
+    "description": "عنوان الفئة للأعراض المتعلقة بالنزيف."
+  },
+  "lightBleeding": "نزيف خفيف",
+  "@lightBleeding": {
+    "description": "خيار العرض للنزيف الخفيف أثناء الدورة الشهرية."
+  },
+  "heavyBleeding": "نزيف شديد",
+  "@heavyBleeding": {
+    "description": "خيار العرض للنزيف الشديد أثناء الدورة الشهرية."
+  },
+  "symptoms": "الأعراض",
+  "@symptoms": {
+    "description": "عنوان الفئة للأعراض المختلفة."
+  },
+  "nausea": "غثيان",
+  "@nausea": {
+    "description": "خيار العرض عندما يعاني المستخدم من الغثيان."
+  },
+  "headache": "صداع",
+  "@headache": {
+    "description": "خيار العرض عندما يعاني المستخدم من صداع."
+  },
+  "bloating": "انتفاخ",
+  "@bloating": {
+    "description": "خيار العرض عندما يعاني المستخدم من الانتفاخ."
+  },
+  "cravings": "رغبات",
+  "@cravings": {
+    "description": "خيار العرض عندما يعاني المستخدم من الرغبة الشديدة."
+  },
+  "breastsHurting": "ألم في الثدي",
+  "@breastsHurting": {
+    "description": "خيار العرض عندما يعاني المستخدم من ألم في الثدي."
+  },
+  "lowerBackPain": "ألم أسفل الظهر",
+  "@lowerBackPain": {
+    "description": "خيار العرض عندما يعاني المستخدم من ألم أسفل الظهر."
+  },
+  "sex": "الجنس",
+  "@sex": {
+    "description": "عنوان الفئة لتتبع الجنس."
+  },
+  "protectedSex": "جنس محمي",
+  "@protectedSex": {
+    "description": "خيار العرض عندما يمارس المستخدم الجنس المحمي."
+  },
+  "unprotectedSex": "جنس غير محمي",
+  "@unprotectedSex": {
+    "description": "خيار العرض عندما يمارس المستخدم الجنس غير المحمي."
+  },
+  "pregnancyTest": "اختبار الحمل",
+  "@pregnancyTest": {
+    "description": "عنوان الفئة لنتائج اختبار الحمل."
+  },
+  "positiveTest": "نتيجة إيجابية",
+  "@positiveTest": {
+    "description": "خيار العرض عندما تكون نتيجة اختبار الحمل إيجابية."
+  },
+  "negativeTest": "نتيجة سلبية",
+  "@negativeTest": {
+    "description": "خيار العرض عندما تكون نتيجة اختبار الحمل سلبية."
+  },
+  "save": "حفظ",
+  "@save": {
+    "description": "زر لحفظ الأعراض المحددة."
+  },
+  "gameTitle": "مطابقة المزاج",
+  "score": "النقاط",
+  "timeLeft": "الوقت المتبقي",
+  "nextLevel": "المستوى التالي",
+  "congratulations": "مبروك!",
+  "completedLevel": "أكملت المستوى {level}!",
+  "@completedLevel": {
+    "description": "الرسالة المعروضة عند الانتهاء من المستوى",
+    "placeholders": {
+      "level": {
+        "example": "1"
+      }
+    }
+  },
+  "completed": "تم",
+  "@completed": {
+    "description": "يشير إلى أن وسائط الملف الشخصي مكتملة."
+  },
+  "notCompleted": "غير مكتمل",
+  "@notCompleted": {
+    "description": "يشير إلى أن وسائط الملف الشخصي غير مكتملة."
+  },
+  "noPeriodData": "لا توجد بيانات للدورة المتاحة",
+  "@noPeriodData": {
+    "description": "الرسالة المعروضة عندما لا توجد بيانات متاحة للدورة للمستخدم."
+  },
+  "gameOver": "انتهى الوقت!",
+  "highScore": "أعلى درجة",
+  "tryAgain": "حاول مرة أخرى",
+  "quit": "إنهاء",
+  "back": "العودة",
+  "question_anxiety": "قلق",
+  "question_fatigue": "إرهاق",
+  "question_irritability": "تململ",
+  "question_sadness": "حزن",
+  "question_cramps": "تشنجات",
+  "question_headache": "صداع",
+  "question_loneliness": "وحدة",
+  "question_stress": "ضغط",
+  "question_moodSwings": "تغيرات مزاجية",
+  "question_tiredness": "تعب",
+  "question_confusion": "ارتباك",
+  "question_fear": "خوف",
+  "question_insomnia": "أرق",
+  "question_lethargy": "خمول",
+  "question_overwhelm": "إرهاق",
+  "question_distraction": "تشتت",
+  "question_boredom": "ملل",
+  "question_anger": "غضب",
+  "question_frustration": "إحباط",
+  "question_impatience": "نفاد الصبر",
+  "question_restlessness": "قلق",
+  "remedy_relaxation": "استرخاء",
+  "remedy_snacks": "وجبات خفيفة",
+  "remedy_exercise": "تمرين",
+  "remedy_socializing": "التواصل الاجتماعي",
+  "remedy_heatTherapy": "العلاج بالحرارة",
+  "remedy_hydration": "ترطيب",
+  "remedy_connectWithFriends": "التواصل مع الأصدقاء",
+  "remedy_meditation": "تأمل",
+  "remedy_healthySnacks": "وجبات خفيفة صحية",
+  "remedy_mindfulBreathing": "تنفس يقظ",
+  "remedy_comfortActivity": "نشاط مريح",
+  "remedy_sleepHygiene": "نظافة النوم",
+  "remedy_movement": "حركة",
+  "remedy_planning": "تخطيط",
+  "remedy_focusExercise": "تمرين تركيز",
+  "remedy_newActivity": "نشاط جديد",
+  "remedy_breathingExercises": "تمارين التنفس",
+  "remedy_journaling": "كتابة يوميات",
+  "remedy_mindfulness": "يقظة ذهنية",
+  "remedy_physicalActivity": "نشاط بدني",
+  "profileTitle": "الملف الشخصي",
+  "completionText": "اكتمل بنسبة {percentage}%",
+  "ageLabel": "العمر",
+  "interestsLabel": "الاهتمامات",
+  "editButton": "تعديل",
+  "mediaCompleteLabel": "تم إكمال الوسائط",
+  "notSet": "غير محدد",
+  "saveButton": "حفظ",
+  "nameLabel": "الاسم",
+  "interestsSubtitle": "{interests}",
+  
+  "finalizePeriodTitle": "إتمام الدورة",
+ 
+  "finalizePeriodButton": "إتمام الدورة",
+   "periodFinalized": "تم إتمام الدورة بنجاح.",
+   "selectedStartDate": "تاريخ البدء المحدد",
+"@selectedStartDate": {
+  "description": "Label for displaying the selected start date in Arabic"
+},
+"selectStartDatePrompt": "يرجى اختيار تاريخ البدء",
+"@selectStartDatePrompt": {
+  "description": "Prompt message for the user to select the start date in Arabic"
+},
+"ovulationPrediction": "تاريخ التبويض المتوقع",
+"bmi_calculator_title": "حاسبة مؤشر كتلة الجسم",
+"gender_label": "الجنس:",
+"female": "أنثى",
+"male": "ذكر",
+"height_label": "الطول",
+"weight_label": "الوزن",
+"cm_unit": "سم",
+"kg_unit": "كجم",
+"calculate_button": "احسب!",
+"your_bmi_result": "نتيجة مؤشر كتلة الجسم",
+"bmi_category": "الفئة",
+"underweight": "نقص الوزن",
+"healthy": "صحي",
+"overweight": "زيادة الوزن",
+"obese": "سمنة",
+"highly_obese": "سمنة مفرطة",
+"extremely_obese": "سمنة شديدة",
+"bmi_categories_label": "فئات مؤشر كتلة الجسم:",
+"results_button": "النتائج",
+"@bmi_calculator_title": {
+  "description": "عنوان شاشة حاسبة مؤشر كتلة الجسم"
+},
+"logout": "تسجيل الخروج",
+"login":"تسجيل الدخول",
+"title_tic_tac": "لعبة تيك تاك تو",
+"player_wins": "اللاعب {player} فاز!",
+"draw": "انتهت بالتعادل!",
+"reset_button": "إعادة اللعبة",
+"login_required":"مطلوب تسجيل الدخول"
+  
+}

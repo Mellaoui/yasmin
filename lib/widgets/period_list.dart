@@ -13,7 +13,7 @@ class PeriodList extends StatelessWidget {
       itemBuilder: (ctx, index) {
         final entry = periodEntries[index];
         return Card(
-          margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+          margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
           child: ListTile(
             title: Text(
               '${entry.startDate.toLocal().toShortDateString()} - ${entry.endDate.toLocal().toShortDateString()}',
@@ -35,6 +35,6 @@ class PeriodList extends StatelessWidget {
 
 extension DateOnlyCompare on DateTime {
   String toShortDateString() {
-    return '${this.year}-${this.month}-${this.day}';
+    return '$year-$month-$day';
   }
 }
